@@ -11,4 +11,13 @@ import scrapy
 class MaoyanItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    pass
+    # pass
+    chian_name = scrapy.Field()
+    en_name = scrapy.Field()
+    profession = scrapy.Field()
+    birthday = scrapy.Field()
+    height = scrapy.Field()
+    master_works = scrapy.Field()
+    actor_url = scrapy.Field()
+    desc = scrapy.Field()
+    actor_id = scrapy.Field()

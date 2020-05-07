@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for maoyan project
+# Scrapy settings for douban_read project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -9,14 +9,14 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'maoyan'
+BOT_NAME = 'douban_read'
 
-SPIDER_MODULES = ['maoyan.spiders']
-NEWSPIDER_MODULE = 'maoyan.spiders'
+SPIDER_MODULES = ['douban_read.spiders']
+NEWSPIDER_MODULE = 'douban_read.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'maoyan (+http://www.yourdomain.com)'
+#USER_AGENT = 'douban_read (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -42,19 +42,20 @@ ROBOTSTXT_OBEY = False
 DEFAULT_REQUEST_HEADERS = {
   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
   'Accept-Language': 'en',
-'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.106 Safari/537.36',
+    'user-agent': 'Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.106 Safari/537.36',
+    'X-Requested-With': 'XMLHttpRequest',
 }
 
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'maoyan.middlewares.MaoyanSpiderMiddleware': 543,
+#    'douban_read.middlewares.DoubanReadSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
-   'maoyan.mymiddle.MyMiddler': 543,
+   'douban_read.my_mdiiler.MyMiddlerWares': 543,
 }
 
 # Enable or disable extensions
@@ -66,7 +67,7 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   'maoyan.pipelines.MaoyanPipeline': 300,
+   'douban_read.pipelines.MongoPipeline': 300,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -89,3 +90,5 @@ ITEM_PIPELINES = {
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+MONGO_URI = 'localhost'
+MONGO_DATABASE = 'douban_read'
